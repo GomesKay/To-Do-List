@@ -1,5 +1,10 @@
 import { prisma } from "../lib/prisma"
-import { CreateTaskInput } from "../types/task"
+import {
+  CreateTaskInput,
+  DeleteTaskInput,
+  UpdateTaskCompletedInput,
+  UpdateTaskInput,
+} from "../types/task"
 
 export async function getAllTasks() {
   return await prisma.task.findMany()
@@ -11,8 +16,24 @@ export async function createTask({ title }: CreateTaskInput) {
   })
 }
 
-export async function updateTask() {}
+export async function updateTask({ id, title }: UpdateTaskInput) {
+  return await prisma.task.update({
+    where: { id },
+    data: {
+      title,
+    },
+  })
+}
 
-export async function updateTaskCompleted() {}
+export async function updateTaskCompleted({ id }: UpdateTaskCompletedInput) {
+  return await prisma.task.update({
+    where: { id },
+    data: { completed: true },
+  })
+}
 
-export async function deleteTask() {}
+export async function deleteTask({ id }: DeleteTaskInput) {
+  return await prisma.task.delete({
+    where: { id },
+  })
+}
