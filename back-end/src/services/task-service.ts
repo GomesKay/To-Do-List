@@ -6,6 +6,7 @@ import {
   UpdateTaskInput,
 } from "../types/task"
 
+// Services
 export async function getAllTasks() {
   return await prisma.task.findMany()
 }

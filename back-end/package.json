@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "dev": "npm run prisma:generate &&tsx watch src/server.ts",
+    "build": "npm run prisma:generate && tsup",
+    "prisma:generate": "prisma generate",
     "biome": "biome format .",
     "biome:check": "biome check .",
     "test": "jest --passWithNoTests",
@@ -16,17 +19,20 @@
   "type": "commonjs",
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.10",
     "jest": "^30.0.4",
     "prisma": "^6.11.1",
     "ts-jest": "^29.4.0",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@prisma/client": "^6.11.1",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "ts-node": "^10.9.2",
     "zod": "^3.25.71"

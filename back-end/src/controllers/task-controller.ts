@@ -8,6 +8,9 @@ import {
 } from "../services/task-service"
 import { bodyTaskSchema, paramsTaskSchema } from "../schemas/task-schema"
 
+// Controllers
+
+// Retorna todas as tarefas
 export async function getTasksController(req: Request, res: Response) {
   try {
     const tasks = await getAllTasks()
@@ -18,6 +21,7 @@ export async function getTasksController(req: Request, res: Response) {
   }
 }
 
+// Cria uma nova tarefa
 export async function addTaskController(req: Request, res: Response) {
   try {
     const { title } = bodyTaskSchema.parse(req.body)
@@ -29,6 +33,7 @@ export async function addTaskController(req: Request, res: Response) {
   }
 }
 
+// Atualiza tarefa
 export async function updateTaskController(req: Request, res: Response) {
   try {
     const { id } = paramsTaskSchema.parse(req.params)
@@ -46,6 +51,7 @@ export async function updateTaskController(req: Request, res: Response) {
   }
 }
 
+// Completa uma tarefa
 export async function updateTaskCompletedController(
   req: Request,
   res: Response
@@ -60,6 +66,7 @@ export async function updateTaskCompletedController(
   }
 }
 
+// Deleta uma tarefa
 export async function removeTaskController(req: Request, res: Response) {
   try {
     const { id } = paramsTaskSchema.parse(req.params)

@@ -9,6 +9,7 @@ import {
 
 export const taskRoutes = Router()
 
+// Rotas da API
 taskRoutes.route("/tasks").get(getTasksController).post(addTaskController)
 taskRoutes
   .route("/tasks/:id")
