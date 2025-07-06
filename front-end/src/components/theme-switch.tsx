@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+
 import { Switch } from "./ui/switch"
 
 export function ThemeSwitch() {

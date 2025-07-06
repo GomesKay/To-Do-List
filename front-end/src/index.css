@@ -47,14 +47,14 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-shine: shine var(--duration) infinite linear;
   @keyframes shine {
-  0% {
-    background-position: 0% 0%;
+    0% {
+      background-position: 0% 0%;
     }
-  50% {
-    background-position: 100% 100%;
+    50% {
+      background-position: 100% 100%;
     }
-  to {
-    background-position: 0% 0%;
+    to {
+      background-position: 0% 0%;
     }
   }
 }
@@ -131,7 +131,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    transition: background-color 0.3s ease, color 0.3s ease,
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
       border-color 0.3s ease;
   }
   body {

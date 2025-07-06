@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+
 import { cn } from "@/lib/utils"
 
 interface ShineBorderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,7 +21,7 @@ export function ShineBorder({
   const [isDarkMode, setIsDarkMode] = React.useState(() =>
     typeof window !== "undefined"
       ? document.documentElement.classList.contains("dark")
-      : false
+      : false,
   )
 
   React.useEffect(() => {
@@ -62,8 +63,8 @@ export function ShineBorder({
         } as React.CSSProperties
       }
       className={cn(
-        "pointer-events-none absolute inset-0 size-full rounded-[inherit] will-change-[background-position] motion-safe:animate-shine",
-        className
+        "motion-safe:animate-shine pointer-events-none absolute inset-0 size-full rounded-[inherit] will-change-[background-position]",
+        className,
       )}
       {...props}
     />
