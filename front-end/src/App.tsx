@@ -26,7 +26,7 @@ export function App() {
 
   return (
     <div className="flex min-h-screen flex-col bg-zinc-950 text-white dark:bg-zinc-200">
-      <header className="flex justify-between px-20 py-12">
+      <header className="flex items-center justify-between px-20 py-12 max-[410px]:flex-col max-[410px]:gap-2">
         <h2 className="font-heading text-4xl font-bold dark:text-black">
           To Do List
         </h2>
@@ -36,7 +36,7 @@ export function App() {
 
       <main className="flex flex-col">
         <section className="flex flex-col items-center justify-center gap-40 pt-12 pb-64">
-          <h1 className="font-heading text-6xl dark:text-black">
+          <h1 className="font-heading text-6xl max-[690px]:text-4xl max-[410px]:text-2xl max-[335px]:text-xl dark:text-black">
             <TextAnimate animation="slideLeft" by="character" duration={6}>
               Gerencie suas próprias tarefas.
             </TextAnimate>
@@ -50,7 +50,7 @@ export function App() {
         <Separator className="bg-zinc-800" />
 
         <section className="flex flex-col items-center gap-20 py-68">
-          <h1 className="font-heading text-6xl dark:text-black">
+          <h1 className="font-heading text-6xl max-[690px]:text-4xl max-[410px]:text-2xl max-[335px]:text-xl dark:text-black">
             <TextAnimate animation="slideLeft" by="character" duration={6}>
               Crie suas tarefas abaixo.
             </TextAnimate>

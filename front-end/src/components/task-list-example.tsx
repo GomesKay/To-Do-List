@@ -16,7 +16,7 @@ export function TaskListExample() {
       {tasks.map((task) => (
         <Card
           key={task.id}
-          className="relative w-2xl border-0 bg-zinc-950 dark:bg-zinc-200"
+          className="relative w-2xl border-0 bg-zinc-950 max-[690px]:w-lg max-[535px]:w-md max-[475px]:w-sm max-[410px]:w-xs max-[335px]:w-3xs dark:bg-zinc-200"
         >
           <ShineBorder />
           <CardContent className="font-text flex items-center justify-between text-white dark:text-black">
@@ -25,7 +25,7 @@ export function TaskListExample() {
             <div className="flex gap-2">
               <Button type="button" className="cursor-pointer">
                 <CircleCheck size={20} />
-                Marcar como concluído
+                <p className="max-[560px]:hidden">Marcar como concluído</p>
               </Button>
 
               <Button type="button" className="cursor-pointer">

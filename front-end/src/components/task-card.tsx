@@ -31,10 +31,10 @@ export function TaskCard({ tasks, onTaskChanged }: TaskCardProps) {
         tasks.map((task) => (
           <Card
             key={task.id}
-            className="relative w-2xl border-0 bg-zinc-950 dark:bg-zinc-200"
+            className="relative w-2xl border-0 bg-zinc-950 max-[690px]:w-lg max-[535px]:w-md max-[475px]:w-sm max-[410px]:w-xs max-[335px]:w-3xs dark:bg-zinc-200"
           >
             <ShineBorder />
-            <CardContent className="font-text flex items-center justify-between text-white dark:text-black">
+            <CardContent className="font-text flex items-center justify-between text-white max-[350px]:flex-col max-[350px]:gap-2 dark:text-black">
               <HoverCard>
                 <HoverCardTrigger className="cursor-pointer hover:underline">
                   <p>{task.title}</p>
@@ -55,7 +55,7 @@ export function TaskCard({ tasks, onTaskChanged }: TaskCardProps) {
                 {task.completed ? (
                   <p className="flex items-center gap-2 font-semibold text-green-400">
                     <CircleCheckBig size={20} />
-                    Concluída
+                    <p className="max-[475px]:hidden">Concluída</p>
                   </p>
                 ) : (
                   <Button
@@ -66,7 +66,7 @@ export function TaskCard({ tasks, onTaskChanged }: TaskCardProps) {
                     }}
                   >
                     <CircleCheck size={20} />
-                    Marcar como concluído
+                    <p className="max-[560px]:hidden">Marcar como concluído</p>
                   </Button>
                 )}
 

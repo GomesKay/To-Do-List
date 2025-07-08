@@ -47,7 +47,7 @@ export function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
       <DialogTrigger asChild>
         <Button
           type="button"
-          className="w-xs cursor-pointer dark:bg-zinc-950 dark:text-white"
+          className="w-xs cursor-pointer max-[375px]:w-44 dark:bg-zinc-950 dark:text-white"
         >
           Criar uma tarefa
         </Button>
