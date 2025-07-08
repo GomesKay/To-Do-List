@@ -16,10 +16,12 @@ import {
 } from "./ui/alert-dialog"
 import { Button } from "./ui/button"
 
+// Alert Dialog para Deletar Tarefa
 export function DeleteTaskAlertDialog({
   task,
   onTaskChanged,
 }: DeleteTaskAlertDialogProps) {
+  // Conexão com a API | DELETE - Deleta a tarefa
   async function handleDeleteTask(id: string) {
     try {
       await axios.delete(`http://localhost:3333/tasks/${id}`)

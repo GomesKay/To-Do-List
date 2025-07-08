@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import { Switch } from "./ui/switch"
 
+// Switch de Tema Dark e White
 export function ThemeSwitch() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 

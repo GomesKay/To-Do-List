@@ -19,6 +19,7 @@ import {
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 
+// Componente de Criação de Tarefa
 export function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
   const {
     register,
@@ -29,6 +30,7 @@ export function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
     resolver: zodResolver(taskFormSchema),
   })
 
+  // Conexão com a API | POST - Criação de novas tarefas
   async function createTask(data: TaskFormData) {
     const { title } = data
 

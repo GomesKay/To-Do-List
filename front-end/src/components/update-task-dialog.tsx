@@ -19,6 +19,7 @@ import {
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 
+// Dialog para Atualizar Tarefa
 export function UpdateTaskDialog({
   taskId,
   onTaskChanged,
@@ -32,6 +33,7 @@ export function UpdateTaskDialog({
     resolver: zodResolver(taskFormSchema),
   })
 
+  // Conexão com a API | PUT - Atualiza tarefa
   async function updateTask(data: TaskFormData) {
     const { title } = data
 

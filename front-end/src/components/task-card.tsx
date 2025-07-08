@@ -12,7 +12,9 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { UpdateTaskDialog } from "./update-task-dialog"
 
+// Card de cada Tarefa
 export function TaskCard({ tasks, onTaskChanged }: TaskCardProps) {
+  // Conexão com a API | PATCH - Finaliza a tarefa
   async function handleUpdateCompletedTask(id: string) {
     try {
       await axios.patch(`http://localhost:3333/tasks/${id}/completed`)

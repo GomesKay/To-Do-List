@@ -11,6 +11,7 @@ import { Separator } from "./components/ui/separator"
 export function App() {
   const [tasks, setTasks] = useState([])
 
+  // Conexão com a API | GET - Retorna as tarefas
   async function fetchTasks() {
     try {
       const response = await axios.get("http://localhost:3333/tasks")
