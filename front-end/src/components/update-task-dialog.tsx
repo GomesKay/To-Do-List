@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 
 import { type TaskFormData, taskFormSchema } from "@/schemas/task-schema"
-import type { CreateTaskDialogProps } from "@/types/task"
+import type { UpdateTaskDialogProps } from "@/types/task"
 
 import { Button } from "./ui/button"
 import {
@@ -19,7 +19,10 @@ import {
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 
-export function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
+export function UpdateTaskDialog({
+  taskId,
+  onTaskChanged,
+}: UpdateTaskDialogProps) {
   const {
     register,
     handleSubmit,
@@ -29,37 +32,33 @@ export function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
     resolver: zodResolver(taskFormSchema),
   })
 
-  async function createTask(data: TaskFormData) {
+  async function updateTask(data: TaskFormData) {
     const { title } = data
 
-    await axios.post("http://localhost:3333/tasks", {
+    await axios.put(`http://localhost:3333/tasks/${taskId}`, {
       title: title,
     })
 
     reset()
-    toast.success("Tarefa criada com sucesso")
+    toast.success("Tarefa atualizada com sucesso")
 
-    onTaskCreated()
+    onTaskChanged()
   }
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          type="button"
-          className="w-xs cursor-pointer dark:bg-zinc-950 dark:text-white"
-        >
-          Criar uma tarefa
+        <Button type="button" className="cursor-pointer">
+          Editar
         </Button>
       </DialogTrigger>
-
       <DialogContent className="font-text space-y-2 bg-zinc-950 text-white">
         <DialogHeader>
-          <DialogTitle>Crie uma nova tarefa</DialogTitle>
+          <DialogTitle>Atualize sua tarefa</DialogTitle>
         </DialogHeader>
 
         <form
-          onSubmit={handleSubmit(createTask)}
+          onSubmit={handleSubmit(updateTask)}
           className="flex flex-col gap-4"
         >
           <div className="flex flex-col gap-4">

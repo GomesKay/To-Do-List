@@ -1,3 +1,6 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+
 import { CreateTaskDialog } from "./components/create-task-dialog"
 import { TextAnimate } from "./components/magicui/text-animate"
 import { TaskCard } from "./components/task-card"
@@ -6,6 +9,21 @@ import { ThemeSwitch } from "./components/theme-switch"
 import { Separator } from "./components/ui/separator"
 
 export function App() {
+  const [tasks, setTasks] = useState([])
+
+  async function fetchTasks() {
+    try {
+      const response = await axios.get("http://localhost:3333/tasks")
+      setTasks(response.data)
+    } catch (error) {
+      console.error("Erro ao buscar tarefas:", error)
+    }
+  }
+
+  useEffect(() => {
+    fetchTasks()
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-col bg-zinc-950 text-white dark:bg-zinc-200">
       <header className="flex justify-between px-20 py-12">
@@ -39,9 +57,9 @@ export function App() {
           </h1>
 
           <div className="flex flex-col items-center gap-6">
-            <CreateTaskDialog />
+            <CreateTaskDialog onTaskCreated={fetchTasks} />
 
-            <TaskCard />
+            <TaskCard tasks={tasks} onTaskChanged={fetchTasks} />
           </div>
         </section>
       </main>
