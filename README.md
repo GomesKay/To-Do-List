@@ -71,7 +71,7 @@ Inclua aqui no seu repositório instruções claras para rodar o front-end e o b
   | 05 | - | Configure o banco de dados: você pode usar um serviço como Render ou Vercel, **mas minha recomendação é usar Docker para rodar o banco localmente, pois é mais rápido e prático** |
   | 06 | - | Crie um arquivo `docker-compose.yml` na raiz da pasta `back-end` utilizando o modelo fornecido abaixo da tabela |
   | 07 | `docker compose up -d` | Sobe o container com o PostgreSQL (Banco de Dados) |
-  | 08 | `DATABASE_URL="postgresql://docker:docker@localhost:5432/tasks?schema=public"` | Copie o `.env.example` e insira a `DATABASE_URL` com a string de conexão |
+  | 08 | `DATABASE_URL="postgresql://docker:docker@localhost:5432/tasks?schema=public"` | Copie o `.env.example` e insira a `DATABASE_URL` no `.env` com a string de conexão |
   | 09 | `npx prisma migrate dev` | Executa as migrations para criar as tabelas no banco de dados |
   | 10 | `npm run test` | Inicia todos os testes feitos com Jest utilizando mocks dos services (Opcional) |
   | 11 | `npm run dev` | Inicia o servidor em modo desenvolvimento |
@@ -79,7 +79,7 @@ Inclua aqui no seu repositório instruções claras para rodar o front-end e o b
   | 13 | `npm install` | Instala todas as dependências necessárias |
   | 14 | `npm run dev` | Inicia o servidor de desenvolvimento com Vite |
 
-  <details>
+  <details open>
     <summary>Utilizando Docker localmente</summary>
 
   * docker-compose.yml
@@ -96,6 +96,11 @@ Inclua aqui no seu repositório instruções claras para rodar o front-end e o b
             - POSTGRES_PASSWORD=docker
             - POSTGRES_DB=tasks
       ```
+
+  * .env
+    ```
+    DATABASE_URL="postgresql://docker:docker@localhost:5432/tasks?schema=public"
+    ```
   </details>
 
 <div align="center">
