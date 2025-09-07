@@ -1,7 +1,7 @@
 <h1 align="center">To-Do List</h1>
 
-![Tela da Aplicação](https://github.com/user-attachments/assets/a2228d96-53db-481c-869d-1c3d2990355b)
-![Tela da Aplicação](https://github.com/user-attachments/assets/fad21b7a-1620-4e4e-b6cd-e830e1536319)
+![Tela da Aplicação](https://github.com/user-attachments/assets/90d0f343-4cc8-444a-957a-cd4f0e87f883)
+![Tela da Aplicação](https://github.com/user-attachments/assets/49ef3b56-bea3-4feb-a494-bbadddc6ded5)
 
 <h2 align="center"> 💻 Instalação e Uso</h2>
 
